@@ -5,6 +5,7 @@ st.set_page_config(page_title="Prediksi Dropout Mahasiswa", layout="wide")
 
 import pandas as pd
 import numpy as np
+import os
 import joblib
 
 # Fungsi untuk membersihkan nilai grade yang tidak valid
@@ -25,9 +26,11 @@ def clean_grade(value):
                 return np.nan
 
 # Fungsi untuk memuat model
+
 @st.cache_resource
 def load_model():
-    return joblib.load("model/dropout_model.pkl")
+    model_path = os.path.join("model", "dropout_model.pkl")
+    return joblib.load(model_path)
 
 model = load_model()
 
