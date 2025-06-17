@@ -4,4 +4,5 @@ joblib==1.5.0
 scikit-learn==1.6.1
 matplotlib==3.10.1
 seaborn==0.13.2
+notebook==7.4.2
 streamlit==1.45.1
