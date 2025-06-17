@@ -193,15 +193,11 @@ Dashboard ini dirancang untuk membantu pihak manajemen pendidikan memonitor maha
 
 ### Fitur Visualisasi Utama:
 
-1. **Ringkasan Jumlah Mahasiswa Berdasarkan Status:**
-   Menampilkan jumlah mahasiswa dalam tiga kategori: _Graduate_, _Dropout_, dan _Enrolled_. Visual ini penting untuk melihat proporsi total mahasiswa dan mengetahui sejauh mana masalah dropout terjadi secara umum.
+1. **Menampilkan jumlah mahasiswa berdasarkan tiga kategori: _Graduate_, _Dropout_, dan _Enrolled_.**
 
-2. **Tingkat Risiko Dropout Mahasiswa Enrolled:**
-   Menyediakan segmentasi mahasiswa _Enrolled_ berdasarkan probabilitas dropout hasil prediksi model.
+2. **Menyediakan segmentasi mahasiswa _Enrolled_ berdasarkan filter probabilitas dropout hasil prediksi model.**
 
-3. **Distribusi 4 Fitur Terpenting Berdasarkan Status:**
-   Empat fitur yang ditampilkan berdasarkan korelasi tertinggi terhadap status dropout:
-
+3. **Menampilkan Empat fitur yang berkorelasi tertinggi terhadap status dropout:**
    - **Curricular_units_2nd_sem_approved**
    - **Curricular_units_2nd_sem_grade**
    - **Curricular_units_1st_sem_approved**
