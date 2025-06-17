@@ -191,17 +191,21 @@ Dashboard ini dirancang untuk membantu pihak manajemen pendidikan memonitor maha
 
 ---
 
-### Fitur Visualisasi Utama:
+### Fitur Visualisasi:
 
-1. **Menampilkan jumlah mahasiswa berdasarkan tiga kategori: _Graduate_, _Dropout_, dan _Enrolled_.**
+1. **Distribusi performa mahasiswa berdasarkan status**:
 
-2. **Menyediakan segmentasi mahasiswa _Enrolled_ berdasarkan filter probabilitas dropout hasil prediksi model.**
+   - Visualisasi 4 fitur terpenting (`grade` dan `approved` per semester).
+   - Memberikan gambaran umum karakteristik mahasiswa dropout.
 
-3. **Menampilkan Empat fitur yang berkorelasi tertinggi terhadap status dropout:**
-   - **Curricular_units_2nd_sem_approved**
-   - **Curricular_units_2nd_sem_grade**
-   - **Curricular_units_1st_sem_approved**
-   - **Curricular_units_1st_sem_grade**
+2. **Filter interaktif berdasarkan probabilitas dropout, grade dan approve per semester**.
+
+3. **Pie chart prediksi Enrolled**:
+
+   - Untuk 794 mahasiswa Enrolled:
+
+     - 447 (56.3%) diprediksi tidak akan dropout
+     - 347 (43.7%) diprediksi berisiko dropout
 
 ---
 
@@ -251,3 +255,35 @@ Berikan program bimbingan belajar dan pendampingan akademik secara rutin kepada 
 Sistem pembayaran uang kuliah yang fleksibel, pengingat berkala, serta peningkatan distribusi beasiswa kepada mahasiswa yang menunjukkan potensi akademik tetapi rentan secara ekonomi.
 
 ---
+
+## 10. Business Dashboard
+
+### Tools:
+
+Google Looker Studio
+
+### Link:
+
+[Dashboard Dropout Mahasiswa](https://lookerstudio.google.com/reporting/147758c6-e4b2-4611-9481-3943b33c3c0b)
+
+### Fitur Visualisasi:
+
+1. **Distribusi performa mahasiswa berdasarkan status**:
+
+   - Visualisasi 4 fitur terpenting (`grade` dan `approved` per semester).
+   - Memberikan gambaran umum karakteristik mahasiswa dropout.
+
+2. **Filter interaktif berdasarkan probabilitas, grade dan approve setiap semester**.
+
+3. **Pie chart prediksi Enrolled**:
+
+   - Untuk 794 mahasiswa Enrolled:
+
+     - 444 (56%) diprediksi tidak akan dropout
+     - 347 (44%) diprediksi berisiko dropout
+
+### Insight:
+
+- Mahasiswa dengan **nilai semester pertama buruk cenderung dropout**.
+- **Pembayaran tidak tepat waktu** sangat berkorelasi dengan risiko DO.
+- **Penerima beasiswa memiliki peluang kelulusan yang lebih tinggi**.
