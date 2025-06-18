@@ -4,26 +4,56 @@
 
 ## 1. Business Understanding
 
-### Latar Belakang Bisnis
+### Latar Belakang
 
-Sebagai institusi pendidikan tinggi, perusahaan atau universitas perlu memastikan tingkat kelulusan yang tinggi dan meminimalkan angka dropout mahasiswa. Dropout mahasiswa tidak hanya berdampak pada reputasi institusi, tapi juga berimbas pada aspek finansial dan sumber daya. Dengan meningkatnya jumlah mahasiswa baru setiap tahun, penting bagi institusi untuk memiliki sistem prediksi dini risiko dropout agar dapat melakukan intervensi yang tepat dan personal.
+Sebagai institusi pendidikan tinggi, universitas atau perusahaan edutech memiliki tanggung jawab untuk memastikan mahasiswa dapat menyelesaikan studinya dengan baik. Namun, kenyataannya, tidak sedikit mahasiswa yang mengalami **dropout** atau **putus studi** di tengah jalan. Tingginya angka dropout berdampak langsung pada:
 
-### Permasalahan Bisnis
+- **Reputasi akademik** institusi,
+- **Kinerja finansial**, baik dari sisi biaya pendidikan maupun pengelolaan beasiswa,
+- **Alokasi sumber daya manusia**, seperti dosen pembimbing dan layanan akademik.
 
-- Tidak adanya sistem otomatis yang dapat memprediksi mahasiswa yang berisiko dropout sejak awal masa studi.
-- Sulitnya mengidentifikasi mahasiswa berisiko tinggi di antara ribuan mahasiswa aktif.
-- Kurangnya data yang terintegrasi dan analisis berbasis data untuk mendukung keputusan manajemen dalam hal retensi mahasiswa.
-- Keterbatasan alat yang memudahkan pihak manajemen untuk memonitor status mahasiswa secara real-time dan mengantisipasi potensi dropout.
+Dalam era digital dengan jumlah mahasiswa yang semakin besar, pengambilan keputusan berbasis intuisi tidak lagi memadai. Diperlukan pendekatan **berbasis data** untuk memetakan risiko dropout secara lebih objektif, cepat, dan terukur.
+
+---
+
+### Permasalahan yang Dihadapi
+
+Beberapa tantangan utama yang ingin diselesaikan melalui proyek ini meliputi:
+
+- Belum adanya **sistem deteksi dini** yang mampu mengidentifikasi mahasiswa berisiko dropout pada tahap awal studi.
+- **Sulitnya mengawasi ribuan mahasiswa** aktif secara individual oleh pihak manajemen kampus.
+- **Kurangnya visualisasi interaktif dan monitoring real-time** terhadap kinerja mahasiswa, terutama untuk mereka yang masih dalam status _Enrolled_.
+- Minimnya **analisis berbasis performa akademik semester awal** untuk mendukung pengambilan keputusan intervensi yang tepat sasaran.
+
+---
+
+### Tujuan dan Solusi yang Ditawarkan
+
+Proyek ini bertujuan untuk membantu institusi pendidikan dalam menekan angka dropout melalui penerapan **model prediktif** dan **dashboard analitik**. Solusi yang dikembangkan mencakup:
+
+1. **Model klasifikasi dropout**: Menggunakan algoritma _Random Forest_ yang dilatih dari data historis mahasiswa untuk memprediksi apakah seorang mahasiswa berisiko tinggi dropout atau tidak.
+2. **Dashboard interaktif berbasis Looker Studio**:
+
+   - Visualisasi performa akademik mahasiswa berdasarkan fitur kunci seperti **nilai dan jumlah mata kuliah yang disetujui per semester**.
+   - Fitur filter untuk memantau mahasiswa _Enrolled_ dengan **probabilitas dropout tinggi** secara real-time.
+
+3. **Aplikasi web interaktif** berbasis Streamlit:
+
+   - Memungkinkan pengguna mengunggah data baru dan langsung memperoleh hasil prediksi secara praktis.
+   - Memberikan metrik agregat dan hasil ekspor prediksi untuk keperluan manajerial.
+
+---
 
 ### Cakupan Proyek
 
-Proyek ini akan membangun sebuah model prediksi untuk mengidentifikasi mahasiswa yang berisiko dropout menggunakan data historis mahasiswa. Selain itu, akan dibangun dashboard bisnis untuk menampilkan hasil prediksi secara visual berdasarkan probabilitas, dan aplikasi web berbasis Streamlit untuk kemudahan interaksi pengguna dalam melakukan prediksi secara mandiri. Cakupan proyek meliputi:
+Untuk menjawab tantangan tersebut, proyek ini mencakup beberapa tahapan utama berikut:
 
-- Pengolahan data dan pelabelan status mahasiswa
-- Pelatihan model klasifikasi menggunakan Random Forest
-- Pembuatan dashboard visualisasi hasil prediksi
-- Pengembangan aplikasi Streamlit untuk prediksi interaktif
-- Rekomendasi bisnis berdasarkan hasil analisis
+- **Eksplorasi dan pra-pemrosesan data** mahasiswa dari berbagai latar belakang akademik dan sosiodemografis.
+- **Pelabelan dan pembentukan target klasifikasi dropout** berdasarkan status akhir studi mahasiswa.
+- **Pelatihan model prediksi** menggunakan algoritma _Random Forest_ dengan penyesuaian class weight.
+- **Pengembangan dashboard bisnis** untuk memvisualisasikan hasil prediksi dan insight performa mahasiswa.
+- **Pembuatan aplikasi Streamlit** agar pengguna non-teknis dapat memanfaatkan model secara mandiri.
+- **Penyusunan rekomendasi kebijakan** berbasis data untuk mendukung strategi retensi mahasiswa.
 
 ### Setup Environment
 
@@ -177,35 +207,77 @@ joblib.dump(model, "model/dropout_model.pkl")
 
 ## 8. Business Dashboard
 
-### Tools yang Digunakan:
+### Tools yang Digunakan
 
 - **Google Looker Studio (Google Data Studio)**
-
-### Link Dashboard:
-
-[Dashboard Dropout Mahasiswa – Looker Studio](https://lookerstudio.google.com/reporting/147758c6-e4b2-4611-9481-3943b33c3c0b)
-
-### Tujuan Dashboard:
-
-Dashboard ini dirancang untuk membantu pihak manajemen pendidikan memonitor mahasiswa yang sedang aktif (status _Enrolled_) berdasarkan hasil prediksi probabilitas dropout. Dengan tampilan visual yang informatif, dashboard ini memungkinkan pengambilan keputusan yang lebih cepat dan berbasis data dalam merancang intervensi preventif.
+  Platform ini dipilih karena kemampuannya menampilkan visualisasi data interaktif yang mudah digunakan oleh pihak manajemen non-teknis.
 
 ---
 
-### Fitur Visualisasi:
+### Link Dashboard
 
-1. **Distribusi performa mahasiswa berdasarkan status**:
+📊 [Dashboard Dropout Mahasiswa – Looker Studio](https://lookerstudio.google.com/reporting/147758c6-e4b2-4611-9481-3943b33c3c0b)
 
-   - Visualisasi 4 fitur terpenting (`grade` dan `approved` per semester).
-   - Memberikan gambaran umum karakteristik mahasiswa dropout.
+---
 
-2. **Filter interaktif berdasarkan probabilitas dropout, grade dan approve per semester**.
+### Tujuan Dashboard
 
-3. **Pie chart prediksi Enrolled**:
+Dashboard ini dirancang untuk membantu institusi pendidikan dalam:
 
-   - Untuk 794 mahasiswa Enrolled:
+- Memonitor mahasiswa aktif (_Enrolled_) berdasarkan probabilitas prediksi dropout.
+- Mengidentifikasi mahasiswa dengan risiko tinggi secara visual dan cepat.
+- Memberikan insight berbasis data untuk pengambilan keputusan intervensi dini.
 
-     - 447 (56.3%) diprediksi tidak akan dropout
-     - 347 (43.7%) diprediksi berisiko dropout
+Dashboard juga dapat digunakan untuk **evaluasi internal kualitas akademik** berdasarkan kinerja semester awal mahasiswa.
+
+---
+
+### Struktur Dashboard dan Fitur Visualisasi
+
+Dashboard terdiri dari **2 halaman utama**:
+
+---
+
+#### 🟦 **Halaman 1: Approve Analysis**
+
+Visualisasi fokus pada performa mahasiswa dari segi jumlah mata kuliah yang **disetujui (approved)**.
+
+**Fitur utama:**
+
+- **Pie Chart Hasil Prediksi Dropout** menggambarkan proporsi hasil klasifikasi model terhadap mahasiswa Enrolled.
+- **Rata-rata jumlah mata kuliah yang disetujui** di Semester 1 dan Semester 2, dibedakan berdasarkan kategori prediksi dropout (Dropout vs Tidak Dropout).
+- **Diagram batang per siswa**: membandingkan jumlah mata kuliah yang disetujui di Semester 1 dan Semester 2 untuk setiap mahasiswa.
+- **Filter interaktif**:
+
+  - Berdasarkan hasil prediksi dropout (Dropout / Tidak Dropout).
+  - Berdasarkan status akademik aktual (Graduate, Enrolled, Dropout).
+  - Berdasarkan **probabilitas prediksi dropout ≥ 51%** untuk fokus pada risiko tinggi.
+
+---
+
+#### 🟦 **Halaman 2: Grade Analysis**
+
+Visualisasi difokuskan pada **nilai rata-rata mahasiswa (grade)** per semester.
+
+**Fitur utama:**
+
+- **Pie Chart Hasil Prediksi Dropout** menggambarkan proporsi hasil klasifikasi model terhadap mahasiswa Enrolled.
+- **Rata-rata nilai (grade)** Semester 1 dan Semester 2 untuk mahasiswa dropout dan tidak.
+- **Diagram batang per siswa**: perbandingan nilai masing-masing mahasiswa antar semester.
+- Memberikan gambaran konsistensi atau penurunan performa dari semester 1 ke 2.
+- **Filter interaktif**:
+
+  - Berdasarkan kategori hasil prediksi (Dropout / Tidak Dropout).
+  - Berdasarkan status akademik aktual (Enrolled, Graduate, Dropout).
+  - Berdasarkan **threshold probabilitas dropout**.
+
+---
+
+### Insight yang Didapat dari Dashboard
+
+- Mahasiswa yang diprediksi dropout umumnya memiliki nilai dan jumlah mata kuliah yang disetujui lebih rendah, baik di semester 1 maupun semester 2.
+- Perbandingan performa antar semester dapat digunakan untuk mengidentifikasi pola penurunan performa akademik.
+- Fitur filter memudahkan manajemen untuk fokus pada kelompok risiko tinggi dan merancang strategi intervensi berbasis bukti.
 
 ---
 
@@ -233,25 +305,59 @@ streamlit run app.py
 
 ---
 
-## 10. Conclusion
-
-Model prediksi yang dikembangkan menggunakan Random Forest mampu mencapai **akurasi 94%** dan **F1-score 0.92** untuk kelas dropout, menandakan performa yang baik dan seimbang. Dari data mahasiswa yang berstatus **Enrolled** sebanyak 794 mahasiswa, prediksi model terhadap risiko dropout menunjukkan:
-
-- **444 mahasiswa (56%) diprediksi tidak akan dropout**
-- **347 mahasiswa (44%) diprediksi berpotensi dropout**
+Berikut adalah versi **revisi dan perluasan** dari bagian **Conclusion** dan **Actionable Recommendations** untuk benar-benar menjawab permasalahan institusi serta menjelaskan faktor penyebab dropout dan karakteristik mahasiswa yang dropout, sesuai dengan catatan reviewer:
 
 ---
 
-## 11. Rekomendasi Action Items
+## 10. Conclusion: Analisis dan Temuan Utama
 
-### **Action Item 1 – Intervensi Akademik untuk Mahasiswa Berisiko**
+Model prediksi yang dikembangkan menggunakan algoritma **Random Forest** menunjukkan performa tinggi dalam mengklasifikasi risiko dropout mahasiswa:
 
-Berikan program bimbingan belajar dan pendampingan akademik secara rutin kepada mahasiswa yang memiliki nilai semester pertama rendah dan jumlah mata kuliah disetujui sedikit.
+- **Akurasi keseluruhan: 94%**
+- **F1-score kelas dropout: 0.92**
+- Model berhasil **mengidentifikasi dengan baik mahasiswa yang berisiko tinggi mengalami dropout**.
+
+### Karakteristik Umum Mahasiswa Dropout
+
+Berdasarkan analisis fitur dan eksplorasi data (EDA), mahasiswa yang mengalami dropout cenderung memiliki pola sebagai berikut:
+
+1. **Nilai akademik rendah** di semester pertama dan kedua, terutama dalam bentuk rata-rata nilai mata kuliah (_grade_).
+2. **Jumlah mata kuliah yang disetujui (approved) rendah**, baik di semester pertama maupun kedua.
+3. Cenderung mengalami stagnasi atau penurunan performa antara semester 1 dan semester 2.
+4. Beberapa berasal dari latar belakang sosial-ekonomi tertentu, meskipun faktor akademik lebih dominan secara statistik.
+
+### Faktor-Faktor Terpenting yang Berpengaruh pada Dropout
+
+Berdasarkan analisis _feature importance_ dari model:
+
+| Fitur                               | Pengaruh (Importance) |
+| ----------------------------------- | --------------------- |
+| `Curricular_units_2nd_sem_approved` | 14.5%                 |
+| `Curricular_units_2nd_sem_grade`    | 13.8%                 |
+| `Curricular_units_1st_sem_approved` | 9.9%                  |
+| `Curricular_units_1st_sem_grade`    | 8.4%                  |
+
+Fitur-fitur ini menunjukkan bahwa performa akademik dua semester pertama sangat menentukan risiko dropout. Mahasiswa yang gagal mempertahankan jumlah SKS yang disetujui dan mendapatkan nilai baik sangat rentan untuk tidak melanjutkan studi.
 
 ---
 
-### **Action Item 2 – Perbaikan dan Dukungan Keuangan Mahasiswa**
+## 11. Actionable Recommendations: Langkah Konkret untuk Institusi
 
-Sistem pembayaran uang kuliah yang fleksibel, pengingat berkala, serta peningkatan distribusi beasiswa kepada mahasiswa yang menunjukkan potensi akademik tetapi rentan secara ekonomi.
+### 1. Intervensi Akademik Terarah Berdasarkan Prediksi
+
+- Gunakan dashboard probabilitas dropout untuk **mengidentifikasi mahasiswa Enrolled yang berisiko tinggi (≥51%)**.
+- Terapkan **program remedial, bimbingan belajar, atau tutor sebaya** secara aktif untuk mahasiswa dengan _grade_ rendah dan _approved_ sedikit.
+- Bangun sistem notifikasi dini berbasis data semester awal untuk mahasiswa baru.
+
+---
+
+### 2. Monitoring Berbasis Dashboard dan Interaksi Real-Time
+
+- Manfaatkan dashboard Looker Studio untuk memonitor:
+
+  - **Perbandingan nilai dan approved semester 1 vs semester 2**.
+  - **Distribusi risiko berdasarkan kategori prediksi dan status akademik**.
+
+- Gunakan filter interaktif untuk **mengelompokkan mahasiswa berdasarkan kategori risiko** dan melakukan analisis kelompok (cohort) secara berkala.
 
 ---
